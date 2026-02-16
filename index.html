@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>StudyScroller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <div class="app-container">
+        <!-- Desktop Sidebar -->
+        <nav class="desktop-nav">
+            <h1>StudyScroller</h1>
+            <button class="nav-btn active"><span>🏠</span> Home</button>
+            <button class="nav-btn"><span>🔍</span> Discover</button>
+            <button class="nav-btn"><span>🔖</span> Library</button>
+            <button class="nav-btn"><span>👤</span> Profile</button>
+        </nav>
+
+        <div class="content-area">
+            <!-- Onboarding Screen 1: Interests -->
+            <section id="onboarding-interests" class="screen active">
+                <header class="onboarding-header">
+                    <div class="progress-bar">
+                        <div class="fill" style="width: 33%"></div>
+                    </div>
+                    <button class="back-btn" onclick="history.back()">← Back</button>
+                    <h1>Which topics interest you?</h1>
+                </header>
+                <div class="chips-container" id="interests-grid">
+                    <!-- Injected via JS -->
+                </div>
+                <div class="bottom-action">
+                    <button class="primary-btn" id="btn-next-1">Continue</button>
+                </div>
+            </section>
+
+            <!-- Onboarding Screen 2: Start Topic -->
+            <section id="onboarding-start" class="screen">
+                <header class="onboarding-header">
+                    <div class="progress-bar">
+                        <div class="fill" style="width: 66%"></div>
+                    </div>
+                    <button class="back-btn" id="btn-back-2">← Back</button>
+                    <h1>Pick a starting point</h1>
+                </header>
+                <div class="list-container" id="start-topics-list">
+                    <!-- Injected via JS -->
+                </div>
+            </section>
+
+            <!-- Onboarding Screen 3: Age -->
+            <section id="onboarding-age" class="screen">
+                <header class="onboarding-header">
+                    <div class="progress-bar">
+                        <div class="fill" style="width: 100%"></div>
+                    </div>
+                    <button class="back-btn" id="btn-back-3">← Back</button>
+                    <h1>Select your age</h1>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 10px;">To tailor the complexity.</p>
+                </header>
+                <div class="list-container" id="age-list">
+                    <button class="list-item" data-age="18-24">18 — 24</button>
+                    <button class="list-item" data-age="25-34">25 — 34</button>
+                    <button class="list-item" data-age="35-44">35 — 44</button>
+                    <button class="list-item" data-age="45-54">45 — 54</button>
+                    <button class="list-item" data-age="55+">55 & older</button>
+                </div>
+            </section>
+
+            <!-- Main Feed -->
+            <section id="main-feed" class="screen">
+                <div class="feed-container" id="feed-track">
+                    <!-- Cards injected here -->
+                </div>
+                <nav class="bottom-nav">
+                    <button class="nav-item active">🏠</button>
+                    <button class="nav-item">🔍</button>
+                    <button class="nav-item">👤</button>
+                </nav>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
