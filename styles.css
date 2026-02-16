@@ -429,7 +429,31 @@ body {
     cursor: pointer;
 }
 
-.nav-item.active {
-    color: #6c5ce7;
-    text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+/* Back Button Styling */
+.back-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+/* Saved State */
+.action-btn.saved {
+    background: #6c5ce7;
+    box-shadow: 0 0 10px #6c5ce7;
+    border: 1px solid #a29bfe;
 }

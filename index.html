@@ -24,34 +24,35 @@
         </nav>
 
         <div class="content-area">
-            <!-- Onboarding Screen 1: Interests -->
-            <section id="onboarding-interests" class="screen active">
+            <!-- Onboarding Screen 1: Start Topic (FIRST) -->
+            <section id="onboarding-start" class="screen active">
                 <header class="onboarding-header">
                     <div class="progress-bar">
                         <div class="fill" style="width: 50%"></div>
                     </div>
-                    <button class="back-btn" onclick="history.back()">← Back</button>
-                    <h1>Which topics interest you?</h1>
+                    <!-- No back button on first screen -->
+                    <h1>Pick a starting point</h1>
+                </header>
+                <div class="list-container" id="start-topics-list">
+                    <!-- Injected via JS -->
+                </div>
+            </section>
+
+            <!-- Onboarding Screen 2: Interests (SECOND) -->
+            <section id="onboarding-interests" class="screen">
+                <header class="onboarding-header">
+                    <div class="progress-bar">
+                        <div class="fill" style="width: 100%"></div>
+                    </div>
+                    <button class="back-btn" id="btn-back-interests">← Back</button>
+                    <h1>Refine your feed</h1>
+                    <p style="opacity: 0.7; margin-top: 5px;">Select sub-topics (Optional)</p>
                 </header>
                 <div class="chips-container" id="interests-grid">
                     <!-- Injected via JS -->
                 </div>
                 <div class="bottom-action">
-                    <button class="primary-btn" id="btn-next-1">Continue</button>
-                </div>
-            </section>
-
-            <!-- Onboarding Screen 2: Start Topic -->
-            <section id="onboarding-start" class="screen">
-                <header class="onboarding-header">
-                    <div class="progress-bar">
-                        <div class="fill" style="width: 100%"></div>
-                    </div>
-                    <button class="back-btn" id="btn-back-2">← Back</button>
-                    <h1>Pick a starting point</h1>
-                </header>
-                <div class="list-container" id="start-topics-list">
-                    <!-- Injected via JS -->
+                    <button class="primary-btn" id="btn-finish-onboarding">Start Scrolling</button>
                 </div>
             </section>
 

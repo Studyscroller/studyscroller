@@ -73,8 +73,8 @@ function renderStartTopics() {
     containers.startList.querySelectorAll('.list-item').forEach(btn => {
         btn.addEventListener('click', () => {
             state.startTopic = btn.dataset.id;
-            // SKIP AGE SCREEN -> Go direct to feed
-            goToScreen('feed');
+            // Go to Interests screen (Refine)
+            goToScreen('interests');
         });
     });
 }
@@ -132,7 +132,8 @@ function cleanOpenFDAData(drug) {
         year: drug.effective_time ? drug.effective_time.substring(0, 4) : "",
         image: null,
         url: `https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=${drug.openfda?.brand_name?.[0]}`,
-        type: 'drug'
+        type: 'drug',
+        source: 'FDA.gov' // Legit source
     };
 }
 
@@ -156,7 +157,8 @@ function cleanOpenAlexData(work) {
         year: work.publication_year,
         image: null,
         url: work.doi || null,
-        type: 'research'
+        type: 'research',
+        source: 'OpenAlex / Scientific Journal' // Legit source
     };
 }
 
@@ -307,19 +309,26 @@ function goToScreen(screenName) {
 }
 
 function attachEventListeners() {
-    // Interest Screen Next Button
-    document.getElementById('btn-next-1').addEventListener('click', () => {
-        goToScreen('start');
-    });
+    // 1. Finish Onboarding (Interests -> Feed)
+    const finishBtn = document.getElementById('btn-finish-onboarding');
+    if (finishBtn) {
+        finishBtn.addEventListener('click', () => {
+            goToScreen('feed');
+        });
+    }
 
-    // Back Buttons (Simulated for single page feeling)
-    document.getElementById('btn-back-2').addEventListener('click', () => {
-        const current = document.querySelector('.screen.active');
-        const prev = screens['interests'];
-        current.classList.remove('active');
-        prev.classList.remove('prev');
-        prev.classList.add('active');
-    });
+    // 2. Back Button (Interests -> Start)
+    const backBtn = document.getElementById('btn-back-interests');
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            // Basic manual toggle back
+            const current = document.querySelector('.screen.active');
+            const prev = screens['start'];
+            current.classList.remove('active');
+            prev.classList.remove('prev');
+            prev.classList.add('active');
+        });
+    }
 }
 
 // Run init
