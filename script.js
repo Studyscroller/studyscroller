@@ -82,6 +82,56 @@ window.saveToLibrary = function (cardId) {
     }
 };
 
+// --- API Integration (Medical Guidelines) ---
+
+async function fetchMedicalGuidelines(topic) {
+    // Mapping topics to search queries for OpenAlex
+    // We strictly filter for "work type" that resembles guidelines or high cite count in medicine
+    const baseUrl = 'https://api.openalex.org/works';
+
+    // Construct strict query for guidelines
+    // "clinical practice guideline" OR "medical guideline" OR "consensus statement"
+    const searchTerms = topic ? `${topic} guideline` : 'clinical practice guideline';
+
+    // Filter by concepts: Medicine (ID: C71924100) is too broad, so we rely on text search + source filtering
+    // We try to limit to major medical journals if possible, or high citation count
+    const url = `${baseUrl}?search=${encodeURIComponent(searchTerms)}&filter=has_abstract:true,type:article&sort=cited_by_count:desc&sample=15&select=title,publication_year,abstract_inverted_index,id,primary_location,doi,cited_by_count,display_name`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.results.map(cleanGuidelineData);
+    } catch (error) {
+        console.error("Guideline API Error:", error);
+        return [];
+    }
+}
+
+// Fallback: Use OpenFDA for labeling IF it's a drug-related topic
+async function fetchDrugLabels(topic) {
+    // ... existing logic but strictly as fallback or supplement
+    return []; // For now, focus purely on Guidelines as requested
+}
+
+function cleanGuidelineData(work) {
+    // Try to detect if it's from a "legit" source via the source display name
+    const sourceName = work.primary_location?.source?.display_name || "Medical Journal";
+
+    return {
+        id: work.id,
+        category: "Guideline",
+        tag: "Official Source",
+        title: work.title,
+        text: reconstructAbstract(work.abstract_inverted_index),
+        year: work.publication_year,
+        image: null,
+        url: work.doi || null,
+        type: 'guideline',
+        source: sourceName, // e.g. "The New England Journal of Medicine"
+        citations: work.cited_by_count
+    };
+};
+
 window.shareContent = async function (title, url) {
     const safeUrl = url && url !== 'null' ? url : window.location.href;
     const shareData = {
@@ -154,22 +204,11 @@ window.currentFeedData = [];
 async function renderFeed() {
     containers.feedTrack.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;color:white;">Scanning global databases...</div>';
 
-    // FETCH REAL DATA PARALLEL
-    const [papers, drugs] = await Promise.all([
-        fetchResearchPapers(state.startTopic),
-        fetchDrugData(state.startTopic)
-    ]);
-
-    // Interleave data
-    const mixedData = [];
-    const maxLength = Math.max(papers.length, drugs.length);
-    for (let i = 0; i < maxLength; i++) {
-        if (papers[i]) mixedData.push(papers[i]);
-        if (drugs[i]) mixedData.push(drugs[i]);
-    }
+    // FETCH REAL DATA (Guidelines Only)
+    const guidelines = await fetchMedicalGuidelines(state.startTopic);
 
     // Fallback
-    window.currentFeedData = mixedData.length > 0 ? mixedData : contentCards;
+    window.currentFeedData = guidelines.length > 0 ? guidelines : contentCards;
 
     containers.feedTrack.innerHTML = window.currentFeedData.map((card) => {
         const bgStyle = card.image

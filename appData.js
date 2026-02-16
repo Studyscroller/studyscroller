@@ -1,90 +1,99 @@
+// Medical Specialties as Start Topics
 export const startTopics = [
-    { id: 'psychology', text: 'Psychology', icon: '🧠' },
-    { id: 'engineering', text: 'Engineering', icon: '⚙️' },
-    { id: 'art', text: 'Art', icon: '🖼️' },
-    { id: 'biology', text: 'Biology', icon: '🧬' },
-    { id: 'history', text: 'History', icon: '🏺' },
-    { id: 'math', text: 'Math', icon: '📐' },
-    { id: 'finance', text: 'Personal finance', icon: '💰' },
-    { id: 'statistics', text: 'Statistics', icon: '📈' },
-    { id: 'architecture', text: 'Architecture', icon: '🏛️' }
+    { id: 'cardiology', text: 'Cardiology', icon: '🫀' },
+    { id: 'oncology', text: 'Oncology', icon: '🎗️' },
+    { id: 'pediatrics', text: 'Pediatrics', icon: '👶' },
+    { id: 'neurology', text: 'Neurology', icon: '🧠' },
+    { id: 'dermatology', text: 'Dermatology', icon: '🧴' },
+    { id: 'psychiatry', text: 'Psychiatry', icon: '🧩' },
+    { id: 'endocrinology', text: 'Endocrinology', icon: '🩸' },
+    { id: 'infectious', text: 'Infectious Dis.', icon: '🦠' },
+    { id: 'emergency', text: 'Emergency Med', icon: '🚑' }
 ];
 
-// Organized by topic ID
+// Specific Diseases/Conditions types for "Interests" (now Refine Guidelines)
 export const interestsData = {
-    'psychology': [
-        { id: 'personality', text: 'Personality types' },
-        { id: 'childhood', text: 'Childhood impact' },
-        { id: 'biases', text: 'Cognitive biases' },
-        { id: 'emotions', text: 'Emotional intelligence' },
-        { id: 'habits', text: 'Habits & behavior' }
+    'cardiology': [
+        { id: 'hypertension', text: 'Hypertension (High BP)' },
+        { id: 'heart_failure', text: 'Heart Failure' },
+        { id: 'afib', text: 'Atrial Fibrillation' },
+        { id: 'cad', text: 'Coronary Artery Disease' },
+        { id: 'prevention', text: 'Prevention Guidelines' }
     ],
-    'engineering': [
-        { id: 'civil', text: 'Civil Engineering' },
-        { id: 'mechanical', text: 'Mechanical Systems' },
-        { id: 'software', text: 'Software Design' },
-        { id: 'robotics', text: 'Robotics' },
-        { id: 'materials', text: 'Materials Science' }
+    'oncology': [
+        { id: 'breast_cancer', text: 'Breast Cancer' },
+        { id: 'lung_cancer', text: 'Lung Cancer' },
+        { id: 'immunotherapy', text: 'Immunotherapy' },
+        { id: 'screening', text: 'Screening Guidelines' },
+        { id: 'palliative', text: 'Palliative Care' }
     ],
-    'art': [
-        { id: 'renaissance', text: 'Renaissance' },
-        { id: 'modern', text: 'Modern Art' },
-        { id: 'color', text: 'Color Theory' },
-        { id: 'digital', text: 'Digital Design' },
-        { id: 'sculpture', text: 'Sculpture' }
+    'pediatrics': [
+        { id: 'vaccination', text: 'Vaccination Schedules' },
+        { id: 'asthma_kids', text: 'Pediatric Asthma' },
+        { id: 'adhd', text: 'ADHD Guidelines' },
+        { id: 'obesity_kids', text: 'Childhood Obesity' },
+        { id: 'development', text: 'Developmental Milestones' }
     ],
-    'biology': [
-        { id: 'genetics', text: 'Genetics' },
-        { id: 'marine', text: 'Marine Biology' },
-        { id: 'ecology', text: 'Ecology' },
-        { id: 'neuro', text: 'Neuroscience' },
-        { id: 'evolution', text: 'Evolution' }
+    'neurology': [
+        { id: 'stroke', text: 'Stroke Management' },
+        { id: 'migraine', text: 'Migraine & Headache' },
+        { id: 'epilepsy', text: 'Epilepsy' },
+        { id: 'alzheimers', text: 'Alzheimers & Dementia' },
+        { id: 'ms', text: 'Multiple Sclerosis' }
     ],
-    'history': [
-        { id: 'ancient', text: 'Ancient Civs' },
-        { id: 'medieval', text: 'Medieval Times' },
-        { id: 'wars', text: 'World Wars' },
-        { id: 'culture', text: 'Cultural History' },
-        { id: 'leaders', text: 'Famous Leaders' }
+    'dermatology': [
+        { id: 'psoriasis', text: 'Psoriasis' },
+        { id: 'eczema', text: 'Atopic Dermatitis' },
+        { id: 'acne', text: 'Acne Management' },
+        { id: 'melanoma', text: 'Melanoma' }
+    ],
+    'endocrinology': [
+        { id: 'diabetes_t2', text: 'Type 2 Diabetes' },
+        { id: 'thyroid', text: 'Thyroid Disorders' },
+        { id: 'obesity', text: 'Obesity Management' },
+        { id: 'osteoporosis', text: 'Osteoporosis' }
     ],
     'default': [
-        { id: 'general', text: 'General Facts' },
-        { id: 'science', text: 'Science' },
-        { id: 'tech', text: 'Technology' },
-        { id: 'news', text: 'Latest News' },
-        { id: 'history', text: 'History' }
+        { id: 'preventive', text: 'Preventive Care' },
+        { id: 'screening', text: 'Cancer Screening' },
+        { id: 'vaccines', text: 'Vaccines' },
+        { id: 'nutrition', text: 'Nutrition' }
     ]
 };
 
+// Fallback/Demo Data - OFFICIAL SOURCES ONLY
 export const contentCards = [
     {
-        id: 1,
-        category: "Psychology",
-        tag: "Did You Know?",
-        title: "The Halo Effect",
-        text: "We tend to attribute positive qualities to people who are physically attractive. If someone looks good, we automatically assume they are smart, kind, and funny.",
-        color: "#6c5ce7",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
-        source: "Psychology Today"
+        id: 'demo1',
+        category: "Cardiology",
+        tag: "Guideline",
+        title: "2023 AHA/ACC Guideline for Chronic Coronary Disease",
+        text: "Updates emphasize team-based care, SGLT2 inhibitors for patients with T2D, and GLP-1 receptor agonists for cardiovascular risk reduction.",
+        year: 2023,
+        source: "American Heart Association (AHA)",
+        url: "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001168",
+        type: 'guideline'
     },
     {
-        id: 2,
-        category: "Biology",
-        tag: "Brain Fact",
-        title: "Neuroplasticity",
-        text: "Your brain isn't fixed. Every time you learn something new, the structure of your brain changes. You can literally rewire your brain to be happier.",
-        color: "#00b894",
-        image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
-        source: "Scientific American"
+        id: 'demo2',
+        category: "Endocrinology",
+        tag: "Standard of Care",
+        title: "Standards of Care in Diabetes—2024",
+        text: "The ADA now recommends early combination therapy for type 2 diabetes and screening for heart failure in all patients with diabetes.",
+        year: 2024,
+        source: "American Diabetes Association (ADA)",
+        url: "https://diabetesjournals.org/care/issue/47/Supplement_1",
+        type: 'guideline'
     },
     {
-        id: 6,
-        category: "Art",
-        tag: "Color Theory",
-        title: "Vantablack",
-        text: "Vantablack is a substance made of carbon nanotubes that absorbs 99.965% of visible light. It makes 3D objects look like flat, black holes.",
-        color: "#fdcb6e",
-        image: "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80",
-        source: "Art Concept"
+        id: 'demo3',
+        category: "Pediatrics",
+        tag: "Recommendation",
+        title: "Clinical Practice Guideline: Management of Hyperbilirubinemia",
+        text: "Revised thresholds for phototherapy and exchange transfusion in newborn infants 35 or more weeks of gestation.",
+        year: 2022,
+        source: "American Academy of Pediatrics (AAP)",
+        url: "https://publications.aap.org/pediatrics/article/150/3/e2022058859/188702",
+        type: 'guideline'
     }
 ];
