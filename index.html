@@ -1,105 +1,1035 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>StudyScroller</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dr. Venugopal P S: Physician | Explorer | Thinker</title>
+    <meta name="description"
+        content="Explore Dr. Venugopal P S's portfolio: a physician, explorer, and thinker sharing medical insights, global photography, and personal musings.">
+    <meta name="keywords"
+        content="Dr. Venugopal P S, Dr. Venu, Venugopal P S, Physician, Explorer, Thinker, Medical Insights, Global Photography, Personal Musings, Emergency Medicine, Healthcare Insights, Travel Blog, Medical Humanities, Doctor Portfolio, Kerala Doctor, Professional Journey, Life Reflections">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Tailwind dark mode configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X55VQFR3HL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-X55VQFR3HL');
+    </script>
+
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://drvenugopalps.com">
+    <meta property="og:title" content="Dr. Venugopal P S: A Physician's Journey in Medicine, Exploration & Thought">
+    <meta property="og:description"
+        content="Join Dr. Venugopal P S on his journey as a physician, explorer, and thinker. Discover his medical insights, captivating global photography, and inspiring personal musings.">
+    <meta property="og:image"
+        content="https://drvenugopalps.com/image/socialshares.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://drvenugopalps.com">
+    <meta property="twitter:title"
+        content="Dr. Venugopal P S: A Physician's Journey in Medicine, Exploration & Thought">
+    <meta property="twitter:description"
+        content="Join Dr. Venugopal P S on his journey as a physician, explorer, and thinker. Discover his medical insights, captivating global photography, and inspiring personal musings.">
+    <meta property="twitter:image"
+        content="https://drvenugopalps.com/image/socialshares.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://drvenugopalps.com" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Dr. Venugopal P S: Physician | Explorer | Thinker",
+  "description": "Dr. Venugopal P S is a dedicated physician, passionate about healing and exploring the world. His comprehensive portfolio showcases his professional medical journey, captivating global travel photography, and profound personal thoughts on medicine, life, and resilience. Currently an Intern at Government Medical College, Madhya Pradesh, he previously graduated with honors from Bukovinian State Medical University, Ukraine. Dr. Venugopal integrates his interests in medical humanities, poetry, and books into his holistic approach to patient care and understanding the human experience, aspiring to specialize in Emergency Medicine.",
+  "image": "https://drvenugopalps.com/image/socialshares.png",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Venugopal P S"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dr venugopal P S",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://drvenugopalps.com/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://drvenugopalps.com"
+  }
+}
+</script>
+
+    <!-- Script to apply dark mode before page load to prevent FOUC -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #007bff;
+        }
+
+        .section {
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .masonry-grid {
+            transition: opacity 0.5s linear;
+        }
+
+        .grid-item {
+            width: 100%;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 640px) {
+            .grid-item {
+                width: calc(50% - 1rem);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-item {
+                width: calc(33.333% - 1rem);
+            }
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Animated Underline */
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #007bff;
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Resume timeline style */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #e9ecef;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+        }
+
+        .timeline-container.left {
+            left: 0;
+        }
+
+        .timeline-container.right {
+            left: 50%;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .timeline-container.left,
+            .timeline-container.right {
+                left: 0%;
+            }
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            top: 28px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline-container::after {
+                left: 23px;
+            }
+        }
+
+        .timeline-container.right::after {
+            left: -8px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline-container.right::after {
+                left: 23px;
+            }
+        }
+
+        .timeline-container.left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 30px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #e9ecef;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #e9ecef;
+        }
+
+        .timeline-container.right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 30px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #e9ecef;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #e9ecef transparent transparent;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .timeline-container.left::before,
+            .timeline-container.right::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #e9ecef transparent transparent;
+            }
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #ffffff;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Dark mode styles for timeline pseudo-elements */
+        .dark .timeline::after {
+            background-color: #374151;
+            /* dark:bg-gray-700 */
+        }
+
+        .dark .timeline-container.left::before {
+            border-color: transparent transparent transparent #111827;
+            /* dark:bg-gray-900 */
+        }
+
+        .dark .timeline-container.right::before {
+            border-color: transparent #111827 transparent transparent;
+            /* dark:bg-gray-900 */
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .dark .timeline-container.left::before,
+            .dark .timeline-container.right::before {
+                border-color: transparent #111827 transparent transparent;
+                /* dark:bg-gray-900 */
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div class="background-gradient"></div>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
 
-    <div class="app-container">
-        <!-- Desktop Sidebar -->
-        <nav class="desktop-nav">
-            <h1>StudyScroller <span style="font-size:0.5em; opacity:0.5">v2.0</span></h1>
-            <button class="nav-btn" onclick="switchTab('home')"><span>🏠</span> Home</button>
-            <button class="nav-btn" onclick="switchTab('discover')"><span>🔍</span> Discover</button>
-            <button class="nav-btn" onclick="switchTab('library')"><span>🔖</span> Library</button>
-        </nav>
-
-        <div class="content-area">
-            <!-- Onboarding Screen 1: Start Topic (FIRST) -->
-            <section id="onboarding-start" class="screen active">
-                <header class="onboarding-header">
-                    <div class="progress-bar">
-                        <div class="fill" style="width: 50%"></div>
-                    </div>
-                    <!-- No back button on first screen -->
-                    <h1>Pick a starting point</h1>
-                </header>
-                <div class="list-container" id="start-topics-list">
-                    <!-- Injected via JS -->
-                </div>
-            </section>
-
-            <!-- Onboarding Screen 2: Interests (SECOND) -->
-            <section id="onboarding-interests" class="screen">
-                <header class="onboarding-header">
-                    <div class="progress-bar">
-                        <div class="fill" style="width: 100%"></div>
-                    </div>
-                    <button class="back-btn" id="btn-back-interests">← Back</button>
-                    <h1>Refine your feed</h1>
-                    <p style="opacity: 0.7; margin-top: 5px;">Select sub-topics (Optional)</p>
-                </header>
-                <div class="chips-container" id="interests-grid">
-                    <!-- Injected via JS -->
-                </div>
-                <div class="bottom-action">
-                    <button class="primary-btn" id="btn-finish-onboarding">Start Scrolling</button>
-                </div>
-            </section>
-
-            <!-- Main Feed (Home) -->
-            <section id="main-feed" class="screen">
-                <div class="feed-container" id="feed-track">
-                    <!-- Cards injected here -->
-                </div>
-                <nav class="bottom-nav">
-                    <button class="nav-item active" onclick="switchTab('home')">🏠</button>
-                    <button class="nav-item" onclick="switchTab('discover')">🔍</button>
-                    <button class="nav-item" onclick="switchTab('library')">🔖</button>
+    <header
+        class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm dark:bg-gray-800/80 dark:border-b dark:border-gray-700">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home"
+                class="text-lg md:text-xl font-bold font-serif text-gray-800 whitespace-nowrap dark:text-white">Dr.
+                Venugopal P S</a>
+            <div class="flex items-center">
+                <nav class="hidden md:flex items-center space-x-8 ml-8">
+                    <a href="#about"
+                        class="nav-link text-gray-600 font-medium dark:text-gray-300 dark:hover:text-blue-400">About</a>
+                    <a href="#gallery"
+                        class="nav-link text-gray-600 font-medium dark:text-gray-300 dark:hover:text-blue-400">Gallery</a>
+                    <a href="#thoughts"
+                        class="nav-link text-gray-600 font-medium dark:text-gray-300 dark:hover:text-blue-400">Thoughts</a>
+                    <a href="#resume"
+                        class="nav-link text-gray-600 font-medium dark:text-gray-300 dark:hover:text-blue-400">Resume</a>
+                    <a href="#contact"
+                        class="nav-link text-gray-600 font-medium dark:text-gray-300 dark:hover:text-blue-400">Contact</a>
                 </nav>
-            </section>
-
-            <!-- Discover Section (New) -->
-            <section id="section-discover" class="screen" style="padding-top: 20px; text-align: center; display: none;">
-                <div style="padding: 20px;">
-                    <h2>Discover New Topics</h2>
-                    <p style="opacity: 0.7; margin-bottom: 20px;">Explore tags to add to your feed.</p>
-                    <div class="chips-container" id="discover-grid" style="justify-content: center;"></div>
+                <div class="hidden md:flex items-center space-x-5 ml-6">
+                    <a href="https://www.instagram.com/venugopal.ps_/" target="_blank"
+                        class="text-gray-500 hover:text-gray-800 transition-colors dark:text-gray-400 dark:hover:text-white">
+                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <title>Instagram</title>
+                            <path
+                                d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.784.305-1.457.718-2.126 1.387C1.333 2.705.92 3.378.614 4.162.31 4.928.11 5.798.053 7.075.002 8.344 0 8.75 0 12s.002 3.656.053 4.925c.057 1.277.258 2.148.56 2.914.305.784.718 1.457 1.387 2.126.67.67 1.343 1.075 2.126 1.38.766.298 1.636.497 2.914.558C8.333 23.985 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.26 2.914-.56.784-.305 1.457-.718-2.126-1.387.67-.67 1.075-1.343 1.38-2.126.298-.766.497-1.636.558-2.914C23.998 15.656 24 15.25 24 12s-.002-3.656-.053-4.925c-.06-1.277-.26-2.148-.56-2.914-.305-.784-.718-1.457-1.387-2.126C20.622 1.333 19.95 1.033 19.166.728 18.4.425 17.53.225 16.25.165 15.667.015 15.26 0 12 0zm0 2.16c3.203 0 3.585.01 4.85.07 1.17.055 1.805.248 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.38.164.423.36 1.057.413 2.227.062 1.265.073 1.646.073 4.85s-.01 3.585-.074 4.85c-.053 1.17-.25 1.805-.414 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.265.062-1.646.074-4.85.074s-3.585-.01-4.85-.074c-1.17-.053-1.805-.25-2.227-.414-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-1.38.896-.164-.423-.36-1.057-.413-2.227-.062-1.265-.073-1.646-.073-4.85s.01-3.585.074-4.85c.053-1.17.25-1.805.414-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.38-.896.423-.164 1.057-.36 2.227-.413C8.415 2.17 8.797 2.16 12 2.16zm0 3.82c-2.94 0-5.32 2.38-5.32 5.32s2.38 5.32 5.32 5.32 5.32-2.38 5.32-5.32-2.38-5.32-5.32-5.32zm0 8.84c-1.95 0-3.52-1.57-3.52-3.52s1.57-3.52 3.52-3.52 3.52 1.57 3.52 3.52-1.57 3.52-3.52 3.52zM18.232 4.41c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25z" />
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank"
+                        class="text-gray-500 hover:text-gray-800 transition-colors dark:text-gray-400 dark:hover:text-white">
+                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <title>YouTube</title>
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
                 </div>
-                <nav class="bottom-nav">
-                    <button class="nav-item" onclick="switchTab('home')">🏠</button>
-                    <button class="nav-item active" onclick="switchTab('discover')">🔍</button>
-                    <button class="nav-item" onclick="switchTab('library')">🔖</button>
-                </nav>
-            </section>
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" type="button"
+                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 ml-4">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM3.05 4.95a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17.24 15.243a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM2.76 15.243a1 1 0 01-1.414-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 010 1.414zM4 10a1 1 0 01-1-1H2a1 1 0 110-2h1a1 1 0 011 1zM16 10a1 1 0 01-1-1H14a1 1 0 110-2h1a1 1 0 011 1z">
+                        </path>
+                    </svg>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 ml-6 dark:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 dark:bg-gray-800">
+            <a href="#about" class="block py-2 nav-link text-gray-600 font-medium dark:text-gray-300">About</a>
+            <a href="#gallery" class="block py-2 nav-link text-gray-600 font-medium dark:text-gray-300">Gallery</a>
+            <a href="#thoughts" class="block py-2 nav-link text-gray-600 font-medium dark:text-gray-300">Thoughts</a>
+            <a href="#resume" class="block py-2 nav-link text-gray-600 font-medium dark:text-gray-300">Resume</a>
+            <a href="#contact" class="block py-2 nav-link text-gray-600 font-medium dark:text-gray-300">Contact</a>
+            <div class="flex items-center space-x-5 mt-4 justify-center">
+                <a href="#" target="_blank"
+                    class="text-gray-500 hover:text-gray-800 transition-colors dark:text-gray-400 dark:hover:text-white">
+                    <svg class="w-7 h-7" fill="currentColor" role="img" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Instagram</title>
+                        <path
+                            d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.784.305-1.457.718-2.126 1.387C1.333 2.705.92 3.378.614 4.162.31 4.928.11 5.798.053 7.075.002 8.344 0 8.75 0 12s.002 3.656.053 4.925c.057 1.277.258 2.148.56 2.914.305.784.718 1.457 1.387 2.126.67.67 1.343 1.075 2.126 1.38.766.298 1.636.497 2.914.558C8.333 23.985 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.26 2.914-.56.784-.305 1.457-.718-2.126-1.387.67-.67 1.075-1.343 1.38-2.126.298-.766.497-1.636.558-2.914C23.998 15.656 24 15.25 24 12s-.002-3.656-.053-4.925c-.06-1.277-.26-2.148-.56-2.914-.305-.784-.718-1.457-1.387-2.126C20.622 1.333 19.95 1.033 19.166.728 18.4.425 17.53.225 16.25.165 15.667.015 15.26 0 12 0zm0 2.16c3.203 0 3.585.01 4.85.07 1.17.055 1.805.248 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.38.164.423.36 1.057.413 2.227.062 1.265.073 1.646.073 4.85s-.01 3.585-.074 4.85c-.053 1.17-.25 1.805-.414 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.265.062-1.646.074-4.85.074s-3.585-.01-4.85-.074c-1.17-.053-1.805-.25-2.227-.414-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-1.38.896-.164-.423-.36-1.057-.413-2.227-.062-1.265-.073-1.646-.073-4.85s.01-3.585.074-4.85c.053-1.17.25-1.805.414-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.38-.896.423-.164 1.057-.36 2.227-.413C8.415 2.17 8.797 2.16 12 2.16zm0 3.82c-2.94 0-5.32 2.38-5.32 5.32s2.38 5.32 5.32 5.32 5.32-2.38 5.32-5.32-2.38-5.32-5.32-5.32zm0 8.84c-1.95 0-3.52-1.57-3.52-3.52s1.57-3.52 3.52-3.52 3.52 1.57 3.52 3.52-1.57 3.52-3.52 3.52zM18.232 4.41c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25z" />
+                    </svg>
+                </a>
+                <a href="#" target="_blank"
+                    class="text-gray-500 hover:text-gray-800 transition-colors dark:text-gray-400 dark:hover:text-white">
+                    <svg class="w-7 h-7" fill="currentColor" role="img" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>YouTube</title>
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
 
-            <!-- Library Section (New) -->
-            <section id="section-library" class="screen" style="padding-top: 20px; text-align: center; display: none;">
-                <div style="padding: 20px;">
-                    <h2>Your Saved Items</h2>
-                    <div class="list-container" id="library-list" style="margin-top: 20px;">
-                        <p style="color: #888;">No saved items yet.</p>
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <img src="https://drvenugopalps.com/image/socialshares.png"
+                        alt="Dr. Venugopal P S"
+                        class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 border-4 border-gray-200 shadow-lg dark:border-gray-700">
+                    <h1
+                        class="text-4xl sm:text-5xl md:text-7xl font-bold font-serif text-gray-800 mb-4 animated-underline dark:text-white">
+                        Dr. Venugopal P S</h1>
+                    <p class="text-lg md:text-2xl text-gray-600 dark:text-gray-400">Physician. Thinker. Explorer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section py-20 lg:py-32 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-serif dark:text-white">About Me</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-12"></div>
+                <div class="max-w-4xl mx-auto text-center text-lg text-gray-700 leading-relaxed dark:text-gray-400">
+                    <p class="mb-6">
+                        I am a dedicated physician with a profound passion for healing and a relentless curiosity for
+                        the world beyond the clinic. My journey in medicine is complemented by a rich tapestry of
+                        personal interests that shape my perspective on life and patient care. I believe in a holistic
+                        approach, where understanding the human experience is as crucial as mastering medical science.
+                    </p>
+                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 mt-10">
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm dark:bg-gray-800">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="font-medium text-sm sm:text-base dark:text-gray-300">Photography
+                                Enthusiast</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm dark:bg-gray-800">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.884 11H16.116M12 21v-4M4.53 8.03l1.414 1.414M18.056 8.03l-1.414 1.414M12 2a2.5 2.5 0 012.5 2.5v.5A2.5 2.5 0 0112 7.5v0A2.5 2.5 0 019.5 5v-.5A2.5 2.5 0 0112 2z">
+                                </path>
+                            </svg>
+                            <span class="font-medium text-sm sm:text-base dark:text-gray-300">Globetrotter</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm dark:bg-gray-800">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                </path>
+                            </svg>
+                            <span class="font-medium text-sm sm:text-base dark:text-gray-300">Poet</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-sm dark:bg-gray-800">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                            <span class="font-medium text-sm sm:text-base dark:text-gray-300">Book Lover</span>
+                        </div>
                     </div>
                 </div>
-                <nav class="bottom-nav">
-                    <button class="nav-item" onclick="switchTab('home')">🏠</button>
-                    <button class="nav-item" onclick="switchTab('discover')">🔍</button>
-                    <button class="nav-item active" onclick="switchTab('library')">🔖</button>
-                </nav>
-            </section>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section py-20 lg:py-32 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-serif dark:text-white">Gallery</h2>
+                <p class="text-center text-gray-600 mb-12 dark:text-gray-400">A collection of moments from my travels
+                    around the globe.</p>
+                <div class="masonry-grid opacity-0 transition-opacity duration-500" id="gallery-grid">
+            <div class="grid-item"><img src="./image/spider.jpg" alt="Landscape Photo 1"></div>
+            <div class="grid-item"><img src="./image/paris.jpg"  alt="Landscape Photo 2"></div>
+            <div class="grid-item"><img src="./image/sunset.jpg"  alt="Landscape Photo 3"></div>
+            <div class="grid-item"><img src="./image/IMG_2763copy.jpg"  alt="Landscape Photo 4"></div>
+            <div class="grid-item"><img src="./image/casino.jpg"  alt="Landscape Photo 5"></div>
+            <div class="grid-item"><img src="./image/Flower.jpg"  alt="Landscape Photo 6"></div>
+            <div class="grid-item"><img src="./image/Hyderabad.jpg"  alt="Landscape Photo 7"></div>
+            <div class="grid-item"><img src="./image/drangonfly.jpg"  alt="Landscape Photo 8"></div>
+          </div>
+            </div>
+        </section>
+
+        <!-- Thoughts Section -->
+        <section id="thoughts" class="section py-20 lg:py-32 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-serif dark:text-white">My Thoughts</h2>
+                <p class="text-center text-gray-600 mb-12 dark:text-gray-400">Musings on medicine, life, and everything
+                    in between.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                    <!-- Thought Item 1 -->
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                        <img src="./image/Mooon.jpg"
+                            alt="Moonlit Confessions"
+                            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <h3 class="text-white text-2xl font-semibold mb-4">Moonlit Confessions</h3>
+                            <button
+                                class="read-more-btn text-white font-semibold border-2 border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition-colors">Read
+                                More</button>
+                        </div>
+                        <div class="thought-content hidden">
+                            <p>Moonlit nights free the words from the shackles of my mind—words which are buried deep
+                                inside my heart, hidden even from myself so that I won't feel certain things again. Some
+                                things feel right at first but tear us apart in the end. Yet, we all fall for the
+                                tricks, believing that we can win over it, and some do. But is it worth the pain, or is
+                                it worth the struggle? Will it last long enough for you to be better? Or will it fade
+                                away into the dingy darkness where everything becomes meaningless, until the moonlight
+                                casts out the shadows again?</p>
+                        </div>
+                    </div>
+
+                    <!-- Thought Item 2 -->
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                        <img src="./image/Amsterdam.jpg"
+                            alt="The Allies of Amsterdam"
+                            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <h3 class="text-white text-2xl font-semibold mb-4">The Allies of Amsterdam</h3>
+                            <button
+                                class="read-more-btn text-white font-semibold border-2 border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition-colors">Read
+                                More</button>
+                        </div>
+                        <div class="thought-content hidden">
+                            <p>Traveling teaches you about the world, but more profoundly, it teaches you about
+                                yourself. My journey through Amsterdam was a testament to responsibility. The silent
+                                night taught me to be stronger and more self-sufficient in facing adversities and how to
+                                be mature enough to make the hard choices that come with being irresponsible towards
+                                oneself.</p>
+                        </div>
+                    </div>
+
+                    <!-- Thought Item 3 -->
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                        <img src="./image/sunset.jpg"
+                            alt="Green hills"
+                            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <h3 class="text-white text-2xl font-semibold mb-4">On Resilience</h3>
+                            <button
+                                class="read-more-btn text-white font-semibold border-2 border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition-colors">Read
+                                More</button>
+                        </div>
+                        <div class="thought-content hidden">
+                            <p>In medicine, we witness resilience daily. The human body's capacity to heal, and the
+                                human spirit's capacity to endure. This post reflects on the nature of resilience, not
+                                as a denial of pain, but as the courage to move through it.</p>
+                        </div>
+                    </div>
+
+                    <!-- Thought Item 4 -->
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                        <img src="./image/waterdroplet.jpg"
+                            alt="A forest path"
+                            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <h3 class="text-white text-2xl font-semibold mb-4">The Human Connection</h3>
+                            <button
+                                class="read-more-btn text-white font-semibold border-2 border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition-colors">Read
+                                More</button>
+                        </div>
+                        <div class="thought-content hidden">
+                            <p>Beyond the charts and the diagnoses lies the fundamental core of medicine: the connection
+                                between two human beings. This is a reflection on the moments of shared vulnerability
+                                and trust that define the patient-doctor relationship.</p>
+                        </div>
+                    </div>
+
+                    <!-- Thought Item 5 -->
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                        <img src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="A wooden dock on a calm lake"
+                            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <h3 class="text-white text-2xl font-semibold mb-4">Perspective</h3>
+                            <button
+                                class="read-more-btn text-white font-semibold border-2 border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition-colors">Read
+                                More</button>
+                        </div>
+                        <div class="thought-content hidden">
+                            <p>A change in perspective can change everything. This thought explores how stepping back,
+                                whether on a mountain top or in a quiet room, can bring clarity to complex problems both
+                                in life and in medicine.</p>
+                        </div>
+                    </div>
+
+                    <!-- Thought Item 6 -->
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Winding road through green fields"
+                            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <h3 class="text-white text-2xl font-semibold mb-4">Finding Balance</h3>
+                            <button
+                                class="read-more-btn text-white font-semibold border-2 border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition-colors">Read
+                                More</button>
+                        </div>
+                        <div class="thought-content hidden">
+                            <p>The life of a physician is a constant balancing act. This is a personal reflection on the
+                                challenge of finding equilibrium between a demanding career and a fulfilling personal
+                                life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="section py-20 lg:py-32 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-serif dark:text-white">Resume</h2>
+                <p class="text-center text-gray-600 mb-12 dark:text-gray-400">Past. Present. Future.</p>
+                <div class="w-16 h-px bg-gray-300 mx-auto mb-16 dark:bg-gray-700"></div>
+                <div class="timeline">
+                    <div class="timeline-container left">
+                        <div class="timeline-content dark:bg-gray-900">
+                            <h3 class="text-lg font-bold dark:text-white">2025 - Present</h3>
+                            <p class="text-sm text-gray-500 mb-2 dark:text-gray-400">Intern @ Government Medical
+                                College, Madhya Pradesh </p>
+                            <p class="text-gray-700 dark:text-gray-400">Deepening my clinical knowledge and skills in a
+                                fast-paced hospital environment. Focused on Emergency medicine, I am dedicated to
+                                providing comprehensive care and working collaboratively with multidisciplinary teams to
+                                achieve the best patient outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right">
+                        <div class="timeline-content dark:bg-gray-900">
+                            <h3 class="text-lg font-bold dark:text-white">2018 - 2024</h3>
+                            <p class="text-sm text-gray-500 mb-2 dark:text-gray-400">Doctor of Medicine (M.D.) @
+                                Bukovinian State Medical University, Ukraine</p>
+                            <p class="text-gray-700 dark:text-gray-400">Graduated with honors, where I developed a
+                                strong foundation in medical sciences, reflecting my early interest in the human side of
+                                medicine i put myself out there to get a taste of being a doctor.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container left">
+                        <div class="timeline-content dark:bg-gray-900">
+                            <h3 class="text-lg font-bold dark:text-white">2016 - 2018</h3>
+                            <p class="text-sm text-gray-500 mb-2 dark:text-gray-400">Higher Education in Science,
+                                Thrissur</p>
+                            <p class="text-gray-700 dark:text-gray-400">This was the start of my journey into the
+                                medical sciences. I was fascinated by the intricate systems of the human body, which
+                                solidified my decision to pursue a career in medicine. </p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right">
+                        <div class="timeline-content dark:bg-gray-900">
+                            <h3 class="text-lg font-bold dark:text-white">Future</h3>
+                            <p class="text-sm text-gray-500 mb-2 dark:text-gray-400">Fellowship & Specialization</p>
+                            <p class="text-gray-700 dark:text-gray-400">I aspire to pursue a fellowship in Emergency
+                                Medicine, combining my passion for complex problem-solving with a desire to make a
+                                significant impact on patients' lives. I also aim to integrate medical humanities into
+                                my practice and teaching.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="section py-20 lg:py-32"
+            style="background: linear-gradient(to right, #e0eafc, #cfdef3);">
+            <div class="container mx-auto px-6" id="contact-inner"> <!-- Added ID for dark mode gradient override -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2
+                            class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-2 font-serif dark:text-white">
+                            Contact</h2>
+                        <p class="text-gray-600 dark:text-gray-400">I am always open to discussions regarding clinical research, medical ethics, and the evolvinglandscape of healthcare.</p>
+                        <div class="w-16 h-px bg-gray-400 mx-auto mt-4"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+                        <!-- Form -->
+                        <div class="w-full md:w-2/3">
+                            <form id="contact-form"
+                                action="https://docs.google.com/forms/d/e/1FAIpQLSc1hYCmhG7NRbgkKMcCHWK5xMQ6oZZHmxT-9gUehaqpmRYL2Q/formResponse"
+                                method="POST" target="hidden_iframe">
+                                <div class="mb-6">
+                                    <label for="name" class="sr-only">Your Name</label>
+                                    <input type="text" id="name" name="entry.1001940977" placeholder="Your Name"
+                                        required
+                                        class="w-full bg-white/50 p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 placeholder-gray-500 dark:bg-gray-700/50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="sr-only">Your E-mail</label>
+                                    <input type="email" id="email" name="entry.1905879094" placeholder="Your E-mail"
+                                        required
+                                        class="w-full bg-white/50 p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 placeholder-gray-500 dark:bg-gray-700/50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="sr-only">Your Message</label>
+                                    <textarea id="message" name="entry.2085792192" rows="6" placeholder="Your Message"
+                                        required
+                                        class="w-full bg-white/50 p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 placeholder-gray-500 dark:bg-gray-700/50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit"
+                                        class="bg-teal-500 text-white font-bold py-3 px-8 rounded-md hover:bg-teal-600 transition-colors duration-300 shadow-lg">SEND</button>
+                                </div>
+                            </form>
+                            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                            <div id="success-message"
+                                class="hidden text-center p-4 mt-6 bg-green-100 text-green-800 rounded-md">
+                                <h3 class="font-bold">Thank you!</h3>
+                                <p>Your message has been sent successfully.</p>
+                            </div>
+                            <div id="error-message"
+                                class="hidden text-center p-4 mt-6 bg-red-100 text-red-800 rounded-md">
+                                <h3 class="font-bold">Oops!</h3>
+                                <p>Something went wrong. Please try again later.</p>
+                            </div>
+                        </div>
+                        <!-- Info -->
+                        <div class="w-full md:w-1/3 md:pl-8 pt-6">
+                            <ul class="space-y-6 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-teal-600 mr-4 mt-1 flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-semibold">Location</h4>
+                                        <p>Kerala, IN</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-teal-600 mr-4 mt-1 flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                        </path>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-semibold">Call me</h4>
+                                        <p>shy! Just email me</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Thought Modal -->
+    <div id="thought-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+        <div id="modal-content"
+            class="bg-white rounded-lg shadow-xl w-11/12 md:w-2/3 lg:w-1/2 max-w-3xl transform transition-all duration-300 ease-in-out scale-95 dark:bg-gray-800">
+            <div class="flex justify-between items-start p-6 border-b dark:border-gray-700">
+                <h3 id="modal-title" class="text-2xl md:text-3xl font-bold font-serif text-gray-800 dark:text-white">
+                </h3>
+                <button id="modal-close"
+                    class="text-gray-400 hover:text-gray-800 text-3xl leading-none dark:hover:text-white">&times;</button>
+            </div>
+            <div id="modal-body"
+                class="p-6 text-gray-700 leading-relaxed max-h-[60vh] overflow-y-auto dark:text-gray-300">
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+
+    <footer class="bg-white py-6 dark:bg-gray-900">
+        <div class="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
+            <p>&copy; <span id="year"></span> Dr. Venugopal P S. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set the current year in the footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Dark Mode Toggle Logic ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            const contactSection = document.getElementById('contact');
+
+            // Function to set the icon based on the current theme
+            const setIcon = () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                    // Override gradient for dark mode
+                    contactSection.style.background = '#111827'; // dark:bg-gray-900
+                } else {
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                    // Restore original gradient for light mode
+                    contactSection.style.background = 'linear-gradient(to right, #e0eafc, #cfdef3)';
+                }
+            };
+
+            // Set the icon immediately on load
+            setIcon();
+
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle the 'dark' class
+                document.documentElement.classList.toggle('dark');
+
+                // Update localStorage
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+
+                // Update the icon
+                setIcon();
+            });
+
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a navigation link is clicked
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Smooth scrolling for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href !== '#') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Active Navigation Link Highlighting on Scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('header nav a');
+
+            const activateNavLink = (path) => {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === path) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            const onScroll = () => {
+                let current = '#home';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 75) {
+                        current = '#' + section.getAttribute('id');
+                    }
+                });
+                activateNavLink(current);
+            };
+
+            window.addEventListener('scroll', onScroll);
+
+            // Section Fade-in Animation on Scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            });
+
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Masonry Grid Initialization for the Gallery
+            const grid = document.querySelector('#gallery-grid');
+            if (grid) {
+                imagesLoaded(grid, function () {
+                    // Initialize Masonry after all images have been loaded to prevent overlap
+                    new Masonry(grid, {
+                        itemSelector: '.grid-item',
+                        columnWidth: '.grid-item',
+                        percentPosition: true,
+                        gutter: 16
+                    });
+                    // Fade in the grid
+                    grid.classList.remove('opacity-0');
+                });
+            }
+
+            // --- Contact Form Submission ---
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            let formSubmitted = false;
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    // We don't prevent default, we let it submit to the iframe
+                    formSubmitted = true;
+                    setTimeout(() => {
+                        if (formSubmitted) {
+                            contactForm.reset();
+                            contactForm.style.display = 'none';
+                            successMessage.classList.remove('hidden');
+                        }
+                    }, 500);
+                });
+            }
+
+            // --- Thought Modal Logic ---
+            const modal = document.getElementById('thought-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const closeModalBtn = document.getElementById('modal-close');
+            const readMoreBtns = document.querySelectorAll('.read-more-btn');
+
+            const openModal = (btn) => {
+                const thoughtWrapper = btn.closest('.group');
+                const thoughtTitle = thoughtWrapper.querySelector('h3').textContent;
+                const thoughtContent = thoughtWrapper.querySelector('.thought-content').innerHTML;
+
+                modalTitle.textContent = thoughtTitle;
+                modalBody.innerHTML = thoughtContent;
+
+                document.body.style.overflow = 'hidden';
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-95');
+            };
+
+            const closeModal = () => {
+                modalContent.classList.add('scale-95');
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('pointer-events-none');
+                    document.body.style.overflow = 'auto';
+                }, 300); // Match transition duration
+            };
+            
+
+            readMoreBtns.forEach(btn => {
+                btn.addEventListener('click', () => openModal(btn));
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+
+        });
+    </script>
+
 </body>
 
 </html>
