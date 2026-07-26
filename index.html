@@ -24,66 +24,6 @@
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X55VQFR3HL"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-X55VQFR3HL');
-    </script>
-
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://drvenugopalps.com">
-    <meta property="og:title" content="Dr. Venugopal P S: A Physician's Journey in Medicine, Exploration & Thought">
-    <meta property="og:description"
-        content="Join Dr. Venugopal P S on his journey as a physician, explorer, and thinker. Discover his medical insights, captivating global photography, and inspiring personal musings.">
-    <meta property="og:image"
-        content="https://drvenugopalps.com/image/socialshares.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://drvenugopalps.com">
-    <meta property="twitter:title"
-        content="Dr. Venugopal P S: A Physician's Journey in Medicine, Exploration & Thought">
-    <meta property="twitter:description"
-        content="Join Dr. Venugopal P S on his journey as a physician, explorer, and thinker. Discover his medical insights, captivating global photography, and inspiring personal musings.">
-    <meta property="twitter:image"
-        content="https://drvenugopalps.com/image/socialshares.png">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://drvenugopalps.com" />
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Dr. Venugopal P S: Physician | Explorer | Thinker",
-  "description": "Dr. Venugopal P S is a dedicated physician, passionate about healing and exploring the world. His comprehensive portfolio showcases his professional medical journey, captivating global travel photography, and profound personal thoughts on medicine, life, and resilience. Currently an Intern at Government Medical College, Madhya Pradesh, he previously graduated with honors from Bukovinian State Medical University, Ukraine. Dr. Venugopal integrates his interests in medical humanities, poetry, and books into his holistic approach to patient care and understanding the human experience, aspiring to specialize in Emergency Medicine.",
-  "image": "https://drvenugopalps.com/image/socialshares.png",
-  "author": {
-    "@type": "Person",
-    "name": "Dr. Venugopal P S"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Dr venugopal P S",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://drvenugopalps.com/logo.png"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://drvenugopalps.com"
-  }
-}
-</script>
-
     <!-- Script to apply dark mode before page load to prevent FOUC -->
     <script>
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -513,24 +453,62 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section id="gallery" class="section py-20 lg:py-32 bg-white dark:bg-gray-800">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-serif dark:text-white">Gallery</h2>
-                <p class="text-center text-gray-600 mb-12 dark:text-gray-400">A collection of moments from my travels
-                    around the globe.</p>
-                <div class="masonry-grid opacity-0 transition-opacity duration-500" id="gallery-grid">
-            <div class="grid-item"><img src="./image/spider.jpg" alt="Landscape Photo 1"></div>
-            <div class="grid-item"><img src="./image/paris.jpg"  alt="Landscape Photo 2"></div>
-            <div class="grid-item"><img src="./image/sunset.jpg"  alt="Landscape Photo 3"></div>
-            <div class="grid-item"><img src="./image/IMG_2763copy.jpg"  alt="Landscape Photo 4"></div>
-            <div class="grid-item"><img src="./image/casino.jpg"  alt="Landscape Photo 5"></div>
-            <div class="grid-item"><img src="./image/Flower.jpg"  alt="Landscape Photo 6"></div>
-            <div class="grid-item"><img src="./image/Hyderabad.jpg"  alt="Landscape Photo 7"></div>
-            <div class="grid-item"><img src="./image/drangonfly.jpg"  alt="Landscape Photo 8"></div>
-          </div>
+       <section id="gallery" class="py-24 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-6 max-w-7xl">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                Selected Photography
+            </h2>
+            <div class="w-16 h-1 bg-blue-600 mx-auto rounded"></div>
+        </div>
+
+        <!-- 
+          THE MASONRY MAGIC:
+          - columns-1, 2, 3: Adjusts column count based on screen size.
+          - gap-6: The horizontal space between columns.
+        -->
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            
+            <!-- Photo 1: (Imagine this is a wide landscape) -->
+            <div class="break-inside-avoid relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                <!-- w-full and h-auto guarantee the aspect ratio stays intact -->
+                <img src="./image/spider.jpg" alt="Spider" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <span class="text-white font-medium p-6 tracking-wide">Nature's Detail</span>
+                </div>
             </div>
-        </section>
+
+            <!-- Photo 2: (Imagine this is a tall portrait) -->
+            <div class="break-inside-avoid relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                <img src="./image/paris.jpg" alt="Paris" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <span class="text-white font-medium p-6 tracking-wide">Parisian Streets</span>
+                </div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="break-inside-avoid relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                <img src="./image/sunset.jpg" alt="Sunset" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <span class="text-white font-medium p-6 tracking-wide">Evening Glow</span>
+                </div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="break-inside-avoid relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                <img src="./image/Flower.jpg" alt="Flower" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <span class="text-white font-medium p-6 tracking-wide">Spring Bloom</span>
+                </div>
+            </div>
+
+            <!-- Add as many photos as you want here. The CSS will automatically stack them! -->
+
+        </div>
+        
+    </div>
+</section>
 
         <!-- Thoughts Section -->
         <section id="thoughts" class="section py-20 lg:py-32 dark:bg-gray-900">
@@ -1013,7 +991,6 @@
                     document.body.style.overflow = 'auto';
                 }, 300); // Match transition duration
             };
-            
 
             readMoreBtns.forEach(btn => {
                 btn.addEventListener('click', () => openModal(btn));
